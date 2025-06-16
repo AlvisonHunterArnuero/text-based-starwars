@@ -1,6 +1,6 @@
 import { TMDBMovieResponse, TMDBErrorResponse } from '@/types/tmdb';
 
-const accessToken = process.env.TMDB_API_READ_ACCESS_TOKEN || "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjZDEzMmQwMmM3MmVkM2Y4OTQ2YWQxMzE4ODJhMzVhZCIsIm5iZiI6MTc0OTYxNjY4MC43MDcsInN1YiI6IjY4NDkwODI4MjcxMjUzNGEyNDFlYjNlNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.8VmxaCiHWFg_lsRiBiqvUasGRz2qNbo6NTJtTaOwfq8";
+const accessToken = process.env.TMDB_API_READ_ACCESS_TOKEN;
 const apiKey = process.env.TMDB_API_KEY;
 
 if (!accessToken && !apiKey) {
