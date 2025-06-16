@@ -1,5 +1,6 @@
-import MovieFilterIcon from '@mui/icons-material/MovieFilter';
 import MovieIcon from '@mui/icons-material/Movie';
+import MovieFilterIcon from '@mui/icons-material/MovieFilter';
+
 import { DrawerMenuItem } from '@/types/navigation';
 
 export const drawerItemsArr: DrawerMenuItem[] = [

@@ -1,6 +1,8 @@
 'use client';
-import React from 'react';
+
 import { Box } from '@mui/material';
+import React from 'react';
+
 import FilmsList from '../components/FilmsList';
 
 export default function SwapiHome() {

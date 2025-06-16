@@ -1,6 +1,5 @@
 'use client';
-import { useState } from 'react';
-import { motion } from 'framer-motion';
+
 import {
   Box,
   TextField,
@@ -8,6 +7,8 @@ import {
   Button,
   Container,
 } from '@mui/material';
+import { motion } from 'framer-motion';
+import { useState } from 'react';
 
 export default function WelcomeModal({
   onComplete,

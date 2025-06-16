@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import {
   Box,
   Typography,
@@ -8,9 +7,13 @@ import {
   Skeleton,
 } from '@mui/material';
 import Grid from '@mui/material/Grid';
-import { fetchSWAPIFilms } from '../actions/films';
-import { FilmCard } from './FilmCard';
+import { useEffect, useState } from 'react';
+
 import { TSwapiFilm, TSwapiFilmsResponse } from '@/types/swapi';
+
+import { fetchSWAPIFilms } from '../actions/films';
+
+import { FilmCard } from './FilmCard';
 
 export default function FilmsList() {
   const [filmsData, setFilmsData] =

@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   Grid,
   Card,
@@ -9,7 +8,10 @@ import {
   Chip,
   Box,
 } from '@mui/material';
+import React from 'react';
+
 import { TMDBMovie } from '@/types/tmdb';
+
 import { fillMovieAverageByRateValue } from '../utils';
 
 interface MovieGridProps {

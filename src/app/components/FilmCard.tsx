@@ -1,9 +1,4 @@
 import {
-  swCardMediaImagesArr,
-  swFilmsCardImgURIS,
-} from '@/config/navigation/cardImagesResources';
-import { TSwapiFilm } from '@/types/swapi';
-import {
   Box,
   Typography,
   Card,
@@ -12,6 +7,12 @@ import {
   Chip,
   CardMedia,
 } from '@mui/material';
+
+import {
+  swCardMediaImagesArr,
+  swFilmsCardImgURIS,
+} from '@/config/navigation/cardImagesResources';
+import { TSwapiFilm } from '@/types/swapi';
 
 export function FilmCard({
   film,

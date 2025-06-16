@@ -1,12 +1,16 @@
 'use client';
+
+import { TextField } from '@mui/material';
 import React, { FC, useEffect, useState } from 'react';
+
 import { TMDBMovieResponse } from '@/types/tmdb';
+
 import {
   fetchTMDBMovies,
   fetchTMDBPopularMovies,
 } from '../actions/tmdb';
+
 import MovieGrid from './MovieGrid';
-import { TextField } from '@mui/material';
 
 const TMDBList: FC = () => {
   const [filmsData, setFilmsData] =

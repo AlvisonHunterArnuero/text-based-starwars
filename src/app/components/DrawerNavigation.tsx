@@ -1,5 +1,6 @@
 'use client';
-import React, { FC } from 'react';
+
+import NavigationIcon from '@mui/icons-material/Navigation';
 import {
   Drawer,
   Box,
@@ -11,10 +12,10 @@ import {
   ListItemText,
   Button,
 } from '@mui/material';
-import NavigationIcon from '@mui/icons-material/Navigation';
-import { drawerItemsArr } from '@/config/navigation/drawerMenu';
-
 import Link from 'next/link';
+import React, { FC } from 'react';
+
+import { drawerItemsArr } from '@/config/navigation/drawerMenu';
 
 export const DrawerNavigation: FC = () => {
   const [open, setOpen] = React.useState(false);
