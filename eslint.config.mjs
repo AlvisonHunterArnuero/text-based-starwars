@@ -35,7 +35,7 @@ const eslintConfig = [
         },
         pathGroups: [
           {
-            pattern: "@/**", // If you're using path aliases (e.g., `@/components`)
+            pattern: "@/**", // when using path aliases (e.g., `@/components`)
             group: "internal",
           },
           {
