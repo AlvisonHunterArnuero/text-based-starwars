@@ -5,6 +5,7 @@ import { DrawerNavigation } from './components/DrawerNavigation';
 import './globals.css';
 
 import type { Metadata } from 'next';
+import { Box } from '@mui/material';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -34,17 +35,43 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const randomBackgrounds = [
+    '/starwars/welcome.jpeg',
+    '/starwars/welcome2.jpg',
+    '/starwars/welcome3.png',
+    '/starwars/welcome4.png',
+  ];
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased`}
       >
-        <div style={{ display: 'flex' }}>
+        <Box
+          sx={{
+            display: 'flex',
+            backgroundSize: 'cover',
+            backgroundPosition: 'top center',
+            backgroundRepeat: 'no-repeat',
+            backgroundAttachment: 'fixed',
+            minHeight: '100vh',
+            minWidth: '100vw',
+            height: '100%',
+            width: '100%',
+            flexDirection: 'column',
+            position: 'relative',
+            overflow: 'hidden',
+            backgroundImage: `url(${
+              randomBackgrounds[
+                Math.floor(Math.random() * randomBackgrounds.length)
+              ]
+            })`,
+          }}
+        >
           <DrawerNavigation />
           <main style={{ flexGrow: 1, padding: '1rem' }}>
             {children}
           </main>
-        </div>
+        </Box>
       </body>
     </html>
   );
