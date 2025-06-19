@@ -1,28 +1,45 @@
 'use client';
 
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {
   Box,
   Typography,
   Alert,
   Skeleton,
+  Grid,
+  MenuItem,
+  FormControl,
+  Paper,
+  Button,
+  Select,
 } from '@mui/material';
-import Grid from '@mui/material/Grid';
 import { useEffect, useState } from 'react';
 
+import { useFilmSort } from '@/_hooks/useFilmSort';
+import { SortField } from '@/types/hooks';
 import { TSwapiFilm, TSwapiFilmsResponse } from '@/types/swapi';
 
-import { fetchSWAPIFilms } from '../actions/films';
+import { fetchSWAPIFilms } from '../actions/filmsActions';
 
 import { FilmCard } from './FilmCard';
 
 export default function FilmsList() {
   const [filmsData, setFilmsData] =
-    useState<TSwapiFilmsResponse | null>(null);
+    useState<TSwapiFilmsResponse | null>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [currentVisitor, setCurrentVisitor] = useState<string | null>(
     null
   );
+
+  const {
+    sortedFilms,
+    sortField,
+    setSortField,
+    sortDirection,
+    toggleSortDirection,
+  } = useFilmSort(filmsData as unknown as TSwapiFilmsResponse);
 
   useEffect(() => {
     const userName = localStorage.getItem('userName');
@@ -47,8 +64,18 @@ export default function FilmsList() {
   if (loading) {
     return (
       <Box sx={{ mt: 4 }}>
-        <Skeleton variant="text" width="60%" height={40} />
-        <Skeleton variant="text" width="40%" height={30} />
+        <Skeleton
+          color="primary"
+          variant="text"
+          width="60%"
+          height={40}
+        />
+        <Skeleton
+          color="primary"
+          variant="text"
+          width="40%"
+          height={30}
+        />
         <Grid container spacing={3} mt={2}>
           {[...Array(3)].map((_, index) => (
             <Grid container key={index}>
@@ -86,13 +113,103 @@ export default function FilmsList() {
       <Typography variant="h6" gutterBottom>
         Films Total: {filmsData?.length || 0}
       </Typography>
+      <Paper
+        elevation={3}
+        sx={{
+          position: 'relative',
+          p: 2,
+          mb: 2,
+          width: '100%',
+          borderRadius: 5,
+          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: 2,
+          overflow: 'hidden',
+          transition: 'all 0.3s ease-in-out',
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            backgroundColor: '#4fc3f7',
+            opacity: 0.7,
+            borderRadius: 5,
+            zIndex: 0,
+          },
+          '& > *': {
+            position: 'relative',
+            zIndex: 1,
+          },
+        }}
+      >
+        <FormControl
+          fullWidth
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            flexDirection: 'row',
+            gap: 6,
+            justifyContent: 'center',
+          }}
+        >
+          <Typography
+            variant="h6"
+            color="dark"
+            textTransform="uppercase"
+          >
+            Filter Movies By:
+          </Typography>
+          <Select
+            size="small"
+            sx={{ minWidth: '300px' }}
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={sortField}
+            label="Filter Movies By..."
+            onChange={(e) =>
+              setSortField(e.target.value as SortField)
+            }
+          >
+            {['title', 'episode_id', 'producer', 'characters'].map(
+              (field) => (
+                <MenuItem
+                  className="capitalize"
+                  key={field}
+                  value={field}
+                >
+                  {field.toUpperCase()}
+                </MenuItem>
+              )
+            )}
+          </Select>
+          <Button
+            variant="outlined"
+            startIcon={
+              sortDirection === 'asc' ? (
+                <ExpandLessIcon />
+              ) : (
+                <ExpandMoreIcon />
+              )
+            }
+            sx={{ cursor: 'pointer', fontWeight: 'bold' }}
+            onClick={toggleSortDirection}
+          >
+            Sort Direction
+          </Button>
+        </FormControl>
+      </Paper>
 
       <Grid
         container
         rowSpacing={1}
         columnSpacing={{ xs: 1, sm: 2, md: 3 }}
       >
-        {filmsData?.map((film: TSwapiFilm, i: number) => (
+        {sortedFilms?.map((film: TSwapiFilm, i: number) => (
           <Grid size={{ xs: 12, md: 6, lg: 4 }} key={film.episode_id}>
             <FilmCard film={film} ndx={i} />
           </Grid>

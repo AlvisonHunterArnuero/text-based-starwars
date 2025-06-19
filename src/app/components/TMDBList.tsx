@@ -8,7 +8,7 @@ import { TMDBMovieResponse } from '@/types/tmdb';
 import {
   fetchTMDBMovies,
   fetchTMDBPopularMovies,
-} from '../actions/tmdb';
+} from '../actions/tmdbActions';
 
 import MovieGrid from './MovieGrid';
 
