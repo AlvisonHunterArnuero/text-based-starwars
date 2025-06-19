@@ -1,7 +1,8 @@
 import { Box, Container } from '@mui/material';
-import TMDBList from '../components/TMDBList';
 
-export default function TMDBPage() {
+import TMDBPopularList from '@/app/components/TMDBPopularList';
+
+export default function TMDBPopularPage() {
   return (
     <main>
       <Container maxWidth="lg" sx={{ py: 4 }}>
@@ -14,7 +15,7 @@ export default function TMDBPage() {
             alignItems: 'center',
           }}
         >
-          <TMDBList />
+          <TMDBPopularList />
         </Box>
       </Container>
     </main>
