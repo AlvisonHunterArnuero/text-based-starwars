@@ -36,20 +36,20 @@ const TMDBList: FC = () => {
     };
   }, [searchQuery]);
 
-  useEffect(() => {
-    const fetchPopularMovies = async () => {
-      try {
-        const results = await fetchTMDBPopularMovies();
-        setFilmsData(results);
-      } catch (err) {
-        console.error(
-          err instanceof Error ? err.message : 'Failed to fetch films'
-        );
-      }
-    };
+  // useEffect(() => {
+  //   const fetchPopularMovies = async () => {
+  //     try {
+  //       const results = await fetchTMDBPopularMovies();
+  //       setFilmsData(results);
+  //     } catch (err) {
+  //       console.error(
+  //         err instanceof Error ? err.message : 'Failed to fetch films'
+  //       );
+  //     }
+  //   };
 
-    fetchPopularMovies();
-  }, []);
+  //   fetchPopularMovies();
+  // }, []);
 
   // Fetch movies by name when debounced query changes
   useEffect(() => {
