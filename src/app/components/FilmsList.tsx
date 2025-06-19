@@ -1,12 +1,10 @@
 'use client';
-
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {
   Box,
   Typography,
   Alert,
-  Skeleton,
   Grid,
   MenuItem,
   FormControl,
@@ -14,6 +12,8 @@ import {
   Button,
   Select,
 } from '@mui/material';
+import CircularProgress from '@mui/material/CircularProgress';
+import { grey } from '@mui/material/colors';
 import { useEffect, useState } from 'react';
 
 import { useFilmSort } from '@/_hooks/useFilmSort';
@@ -63,26 +63,11 @@ export default function FilmsList() {
 
   if (loading) {
     return (
-      <Box sx={{ mt: 4 }}>
-        <Skeleton
-          color="primary"
-          variant="text"
-          width="60%"
-          height={40}
-        />
-        <Skeleton
-          color="primary"
-          variant="text"
-          width="40%"
-          height={30}
-        />
-        <Grid container spacing={3} mt={2}>
-          {[...Array(3)].map((_, index) => (
-            <Grid container key={index}>
-              <Skeleton variant="rectangular" height={200} />
-            </Grid>
-          ))}
-        </Grid>
+      <Box className="max-w-7xl mx-auto w-screen h-screen flex flex-col justify-center items-center">
+        <CircularProgress size="5rem" color="inherit" />
+        <Typography variant="h4" color="white" sx={{ mt: 2 }}>
+          Loading initial films, please wait...
+        </Typography>
       </Box>
     );
   }
@@ -120,7 +105,7 @@ export default function FilmsList() {
           p: 2,
           mb: 2,
           width: '100%',
-          borderRadius: 5,
+          borderRadius: 3,
           boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
           display: 'flex',
           flexDirection: 'column',
@@ -136,9 +121,9 @@ export default function FilmsList() {
             left: 0,
             width: '100%',
             height: '100%',
-            backgroundColor: '#4fc3f7',
+            backgroundColor: grey[400],
             opacity: 0.7,
-            borderRadius: 5,
+            borderRadius: 3,
             zIndex: 0,
           },
           '& > *': {
@@ -166,11 +151,10 @@ export default function FilmsList() {
           </Typography>
           <Select
             size="small"
-            sx={{ minWidth: '300px' }}
-            labelId="demo-simple-select-label"
+            sx={{ minWidth: '250px' }}
+            labelId="filter-movies-select-label"
             id="demo-simple-select"
             value={sortField}
-            label="Filter Movies By..."
             onChange={(e) =>
               setSortField(e.target.value as SortField)
             }
@@ -188,7 +172,7 @@ export default function FilmsList() {
             )}
           </Select>
           <Button
-            variant="outlined"
+            variant="contained"
             startIcon={
               sortDirection === 'asc' ? (
                 <ExpandLessIcon />
@@ -196,7 +180,11 @@ export default function FilmsList() {
                 <ExpandMoreIcon />
               )
             }
-            sx={{ cursor: 'pointer', fontWeight: 'bold' }}
+            sx={{
+              cursor: 'pointer',
+              fontWeight: 'bold',
+              minWidth: '200px',
+            }}
             onClick={toggleSortDirection}
           >
             Sort Direction

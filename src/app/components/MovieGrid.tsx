@@ -45,7 +45,6 @@ const MovieGrid: React.FC<MovieGridProps> = ({ movies }) => {
                 },
               }}
             >
-              {/* Movie Poster */}
               <CardMedia
                 component="img"
                 height="400"
@@ -53,11 +52,10 @@ const MovieGrid: React.FC<MovieGridProps> = ({ movies }) => {
                 alt={movie.title}
                 sx={{
                   objectFit: 'cover',
-                  backgroundColor: (theme) => theme.palette.grey[300],
+                  backgroundColor: (theme) => theme.palette.grey[500],
                 }}
               />
 
-              {/* Movie Content */}
               <CardContent sx={{ flexGrow: 1 }}>
                 <Typography gutterBottom variant="h5" component="div">
                   {movie.title}
@@ -77,7 +75,6 @@ const MovieGrid: React.FC<MovieGridProps> = ({ movies }) => {
                 </Typography>
               </CardContent>
 
-              {/* Footer with metadata */}
               <CardActions
                 sx={{
                   display: 'flex',
