@@ -1,12 +1,20 @@
+'use server'
 import { TMDBMovieResponse, TMDBErrorResponse } from '@/types/tmdb';
 
-const accessToken = process.env.TMDB_API_READ_ACCESS_TOKEN;
-const apiKey = process.env.TMDB_API_KEY;
+const accessToken: string | undefined = process.env.TMDB_API_READ_ACCESS_TOKEN;
+const apiKey: string | undefined = process.env.TMDB_API_KEY;
 
-if (!accessToken && !apiKey) {
-    console.error('TMDB API credentials are not configured');
-    throw new Error('TMDB API credentials are not configured');
+if (!accessToken) {
+    console.error('TMDB API read access token is not configured');
+    throw new Error('TMDB API read access token is not configured');
 }
+
+if (!apiKey) {
+    console.error('TMDB API key is not configured');
+    throw new Error('TMDB API key is not configured');
+}
+
+
 
 export async function fetchTMDBMovies(movieName: string): Promise<TMDBMovieResponse> {
     try {

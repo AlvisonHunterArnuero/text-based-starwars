@@ -1,3 +1,5 @@
+'use server'
+
 import { TSwapiFilm } from "@/types/swapi";
 
 export async function fetchSWAPIFilms(): Promise<TSwapiFilm> {
