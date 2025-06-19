@@ -78,3 +78,31 @@ export async function fetchTMDBPopularMovies(page: number = 1): Promise<TMDBMovi
         throw error;
     }
 }
+
+export async function fetchTMDBTopRatedMovies(page: number = 1): Promise<TMDBMovieResponse> {
+    try {
+        const url = new URL(`https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=${page}`);
+        url.searchParams.append('language', 'en-US');
+        url.searchParams.append('page', page.toString());
+        if (apiKey) url.searchParams.append('api_key', apiKey);
+
+        const response = await fetch(url.toString(), {
+            headers: {
+                ...(accessToken && { 'Authorization': `Bearer ${accessToken}` }),
+                'Accept': 'application/json'
+            }
+        });
+
+        if (!response.ok) {
+            const errorData: TMDBErrorResponse = await response.json();
+            throw new Error(
+                `Failed to fetch movies: ${errorData.status_message || response.statusText} (Status: ${response.status})`
+            );
+        }
+
+        return await response.json();
+    } catch (error) {
+        console.error('Error fetching movies:', error);
+        throw error;
+    }
+}
