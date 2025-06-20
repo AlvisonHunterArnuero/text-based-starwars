@@ -32,7 +32,7 @@ const MovieGrid: React.FC<MovieGridProps> = ({ movies }) => {
     <Box sx={{ flexGrow: 1, p: 3 }}>
       <Grid container spacing={3}>
         {movies.map((movie) => (
-          <Grid size={{ xs: 12, md: 6, lg: 4 }} key={movie.id}>
+          <Grid size={{ xs: 12, md: 6 }} key={movie.id}>
             <Card
               sx={{
                 height: '100%',

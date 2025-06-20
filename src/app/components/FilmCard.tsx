@@ -16,7 +16,6 @@ import { TSwapiFilm } from '@/types/swapi';
 
 export function FilmCard({
   film,
-  ndx,
 }: {
   film: TSwapiFilm;
   ndx: number;
@@ -50,7 +49,7 @@ export function FilmCard({
           overflow: 'hidden',
           borderBottom: '1px solid rgba(255, 255, 255, 0.2)',
         }}
-        image={`${swFilmsCardImgURIS}/${swCardMediaImagesArr[ndx]}`}
+        image={`${swFilmsCardImgURIS}/${swCardMediaImagesArr[film.episode_id-1]}`}
         title={film.title}
         onError={(e) => {
           (e.target as HTMLImageElement).style.display = 'none';
