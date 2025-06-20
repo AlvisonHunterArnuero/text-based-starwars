@@ -6,11 +6,10 @@ import { Box, Button, Stack, Typography } from '@mui/material';
 import { blueGrey } from '@mui/material/colors';
 import React, { FC, useEffect, useState } from 'react';
 
+import { fetchTMDBTopRatedMovies } from '@/app/actions/tmdbActions';
 import { TMDBMovieResponse } from '@/types/tmdb';
 
-import { fetchTMDBTopRatedMovies } from '../actions/tmdbActions';
-
-import MovieGrid from './MovieGrid';
+import MovieGrid from '../MovieGrid';
 
 const TMDBTopRatedList: FC = () => {
   const [filmsData, setFilmsData] =
@@ -100,7 +99,7 @@ const TMDBTopRatedList: FC = () => {
             Previous
           </Button>
           <Typography color="white" variant="body1">
-            TOP RATED - Page {currentPage} of {totalPages}
+            Page {currentPage} of {totalPages}
           </Typography>
           <Button
             variant="contained"

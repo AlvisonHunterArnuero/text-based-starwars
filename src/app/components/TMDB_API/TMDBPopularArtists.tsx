@@ -6,24 +6,23 @@ import { Box, Button, Stack, Typography } from '@mui/material';
 import { blueGrey } from '@mui/material/colors';
 import React, { FC, useEffect, useState } from 'react';
 
-import { TMDBMovieResponse } from '@/types/tmdb';
+import { fetchTMDBPopularArtists } from '@/app/actions/tmdbActions';
+import { TMDBPopularArtistsResponse } from '@/types/tmdb';
 
-import { fetchTMDBPopularMovies } from '../actions/tmdbActions';
+import PopularArtistsGrid from '../PopularArtistsGrid';
 
-import MovieGrid from './MovieGrid';
-
-const TMDBPopularList: FC = () => {
+const TMDBPopularArtists: FC = () => {
   const [filmsData, setFilmsData] =
-    useState<TMDBMovieResponse | null>(null);
+    useState<TMDBPopularArtistsResponse | null>(null);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [totalPages, setTotalPages] = useState<number>(1);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    const getTMDBPopularMovies = async () => {
+    const getTMDBPopularArtists = async () => {
       try {
         setLoading(true);
-        const results = await fetchTMDBPopularMovies(currentPage);
+        const results = await fetchTMDBPopularArtists(currentPage);
         setFilmsData(results);
         setTotalPages(results.total_pages);
         setCurrentPage(results.page);
@@ -36,7 +35,7 @@ const TMDBPopularList: FC = () => {
       }
     };
 
-    getTMDBPopularMovies();
+    getTMDBPopularArtists();
   }, [currentPage]);
 
   const onPreviousPage = () => {
@@ -52,7 +51,7 @@ const TMDBPopularList: FC = () => {
 
   return (
     <>
-      <MovieGrid movies={filmsData?.results ?? []} />
+      <PopularArtistsGrid movies={filmsData?.results ?? []} />
       <Box
         sx={{
           display: 'flex',
@@ -100,7 +99,7 @@ const TMDBPopularList: FC = () => {
             Previous
           </Button>
           <Typography color="white" variant="body1">
-            TOP RATED - Page {currentPage} of {totalPages}
+            Page {currentPage} of {totalPages}
           </Typography>
           <Button
             variant="contained"
@@ -122,5 +121,4 @@ const TMDBPopularList: FC = () => {
   );
 };
 
-export default TMDBPopularList;
-
+export default TMDBPopularArtists;

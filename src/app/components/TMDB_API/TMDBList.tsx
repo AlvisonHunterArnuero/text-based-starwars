@@ -3,21 +3,17 @@
 import { TextField } from '@mui/material';
 import React, { FC, useEffect, useState } from 'react';
 
+import { fetchTMDBMovies } from '@/app/actions/tmdbActions';
 import { TMDBMovieResponse } from '@/types/tmdb';
 
-import {
-  fetchTMDBMovies,
-  fetchTMDBPopularMovies,
-} from '../actions/tmdbActions';
-
-import MovieGrid from './MovieGrid';
+import MovieGrid from '../MovieGrid';
 
 const TMDBList: FC = () => {
   const [filmsData, setFilmsData] =
     useState<TMDBMovieResponse | null>(null);
-  const [searchQuery, setSearchQuery] = useState<string>('');
+  const [searchQuery, setSearchQuery] = useState<string>('Star Wars');
   const [debouncedQuery, setDebouncedQuery] =
-    useState<string>('star wars');
+    useState<string>('');
 
   const handleSearchQueryChange = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -36,28 +32,13 @@ const TMDBList: FC = () => {
     };
   }, [searchQuery]);
 
-  // useEffect(() => {
-  //   const fetchPopularMovies = async () => {
-  //     try {
-  //       const results = await fetchTMDBPopularMovies();
-  //       setFilmsData(results);
-  //     } catch (err) {
-  //       console.error(
-  //         err instanceof Error ? err.message : 'Failed to fetch films'
-  //       );
-  //     }
-  //   };
-
-  //   fetchPopularMovies();
-  // }, []);
-
   // Fetch movies by name when debounced query changes
   useEffect(() => {
     const fetchMoviesByName = async () => {
       try {
         if (debouncedQuery.trim() === '') {
           // If search is empty, fetch popular movies instead
-          const results = await fetchTMDBPopularMovies();
+          const results = await fetchTMDBMovies('Star Wars');
           setFilmsData(results);
         } else {
           const results = await fetchTMDBMovies(debouncedQuery);
@@ -77,14 +58,13 @@ const TMDBList: FC = () => {
     <>
       <TextField
         fullWidth
-        label="Search for a movie"
         variant="outlined"
         margin="normal"
         autoFocus
         helperText="Search for a movie by name"
         id="fullWidth"
         color="primary"
-        placeholder="e.g. Star Wars"
+        placeholder="Search for a movie by name: e.g. Star Wars"
         sx={{
           backgroundColor: 'orange.500',
           '& .MuiOutlinedInput-root': {
@@ -100,7 +80,13 @@ const TMDBList: FC = () => {
             color: 'white',
           },
           '& .MuiInputBase-input': {
+            color: 'black',
+            backgroundColor: 'whitesmoke',
+          },
+          '& .MuiFormHelperText-root': {
             color: 'white',
+            fontSize: '1rem',
+            fontWeight: 400,
           },
         }}
         onChange={handleSearchQueryChange}
