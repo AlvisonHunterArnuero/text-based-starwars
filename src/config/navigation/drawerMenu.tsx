@@ -9,7 +9,12 @@ export const drawerItemsArr: DrawerMenuItem[] = [
   {
     title: 'StarWars Movies',
     icon: <MovieFilterIcon />,
-    path: '/',
+    path: '/swapi',
+  },
+  {
+    title: 'TMDB Search Movies',
+    icon: <LiveTvIcon />,
+    path: '/tmdb/',
   },
   {
     title: 'Popular Movies',
@@ -20,5 +25,15 @@ export const drawerItemsArr: DrawerMenuItem[] = [
     title: 'Top Rated Movies',
     icon: <LiveTvIcon />,
     path: '/tmdb/top-rated',
+  },
+  {
+    title: 'Popular Tv Shows',
+    icon: <LiveTvIcon />,
+    path: '/tmdb/tv-shows',
+  },
+  {
+    title: 'Popular Artists',
+    icon: <LiveTvIcon />,
+    path: '/tmdb/top-artists',
   },
 ];

@@ -63,5 +63,47 @@ export interface TMDBErrorResponse {
   }
 
 
+export interface TMDBKnownFor {
+    backdrop_path: string | null;
+    id: number;
+    title?: string; // For movies
+    name?: string; // For TV shows
+    original_title?: string; // For movies
+    original_name?: string; // For TV shows
+    overview: string;
+    poster_path: string | null;
+    media_type: 'movie' | 'tv';
+    adult: boolean;
+    original_language: string;
+    genre_ids: number[];
+    popularity: number;
+    release_date?: string; // For movies
+    first_air_date?: string; // For TV shows
+    video?: boolean;
+    vote_average: number;
+    vote_count: number;
+    origin_country?: string[]; // For TV shows
+}
+
+export interface TMDBPopularArtist {
+    adult: boolean;
+    gender: number; // 1 for female, 2 for male
+    id: number;
+    backdrop_path: string | null;
+    known_for_department: string;
+    name: string;
+    original_name: string;
+    popularity: number;
+    profile_path: string | null;
+    known_for: TMDBKnownFor[];
+}
+
+export interface TMDBPopularArtistsResponse {
+    page: number;
+    results: TMDBPopularArtist[];
+    total_pages: number;
+    total_results: number;
+  }
+
 
 
