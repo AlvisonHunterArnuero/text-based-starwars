@@ -1,6 +1,6 @@
 import { Box, Container } from '@mui/material';
 
-import TMDBPopularList from '@/app/components/TMDBPopularList';
+import TMDBPopularList from '@/app/components/TMDB_API/TMDBPopularList';
 
 export default function TMDBPopularPage() {
   return (

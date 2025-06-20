@@ -1,6 +1,6 @@
 import { Box, Container } from '@mui/material';
 
-import TMDBTopRatedList from '@/app/components/TMDBTopRatedList';
+import TMDBTopRatedList from '@/app/components/TMDB_API/TMDBTopRatedList';
 
 export default function TMDBTopRatedPage() {
   return (
