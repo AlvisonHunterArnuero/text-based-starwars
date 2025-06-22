@@ -27,7 +27,7 @@ export function FilmCard({
         display: 'flex',
         flexDirection: 'column',
         minWidth: 300,
-        maxWidth: 500,
+        maxWidth: 600,
         maxHeight: 900,
         backgroundColor: 'rgba(0, 0, 0, 0.8)',
         backdropFilter: 'blur(10px)',
@@ -42,14 +42,14 @@ export function FilmCard({
       <CardMedia
         sx={{
           height: 300,
-          width: '100%',
           minHeight: 300,
-          objectFit: 'cover',
-          maxHeight: 400,
-          overflow: 'hidden',
+          minWidth: 300,
+          backgroundPosition: 'top',
           borderBottom: '1px solid rgba(255, 255, 255, 0.2)',
         }}
-        image={`${swFilmsCardImgURIS}/${swCardMediaImagesArr[film.episode_id-1]}`}
+        image={`${swFilmsCardImgURIS}/${
+          swCardMediaImagesArr[film.episode_id - 1]
+        }`}
         title={film.title}
         onError={(e) => {
           (e.target as HTMLImageElement).style.display = 'none';
@@ -75,7 +75,11 @@ export function FilmCard({
 
         <Typography
           variant="body2"
-          sx={{ fontStyle: 'italic', maxWidth: 600 }}
+          sx={{
+            fontStyle: 'italic',
+            textAlign: 'justify',
+            maxWidth: 600,
+          }}
         >
           {film.opening_crawl}
         </Typography>
