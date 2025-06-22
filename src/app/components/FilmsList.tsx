@@ -198,7 +198,16 @@ export default function FilmsList() {
         columnSpacing={{ xs: 1, sm: 2, md: 3 }}
       >
         {sortedFilms?.map((film: TSwapiFilm, i: number) => (
-          <Grid size={{ xs: 12, md: 6, lg: 4 }} key={film.episode_id}>
+          <Grid
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              gap: 2,
+            }}
+            size={{ xs: 12, md: 6 }}
+            key={film.episode_id}
+          >
             <FilmCard film={film} ndx={i} />
           </Grid>
         ))}
