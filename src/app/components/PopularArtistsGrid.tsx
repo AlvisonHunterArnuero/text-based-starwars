@@ -29,8 +29,8 @@ interface MovieGridProps {
   movies: TMDBPopularArtist[];
 }
 
-const posterThumbsPath = 'https://image.tmdb.org/t/p/w300';
-const stillThumbsPath = 'https://image.tmdb.org/t/p/w780';
+const posterThumbsPath = process.env.NEXT_PUBLIC_POSTER_THUMBS_PATH;
+const stillThumbsPath = process.env.NEXT_PUBLIC_STILL_THUMBS_PATH;
 
 const PopularArtistsGrid: React.FC<MovieGridProps> = ({ movies }) => {
   if (!movies || movies.length === 0) {
@@ -90,7 +90,7 @@ const PopularArtistsGrid: React.FC<MovieGridProps> = ({ movies }) => {
             >
               <CardMedia
                 component="img"
-                height="400"
+                height="200"
                 image={`${stillThumbsPath}${artist.profile_path}`}
                 alt={artist.name}
                 sx={{
@@ -101,7 +101,7 @@ const PopularArtistsGrid: React.FC<MovieGridProps> = ({ movies }) => {
                 }}
               />
 
-              <CardContent sx={{ flexGrow: 1 }}>
+              <CardContent sx={{ pt: 2, flexGrow: 1 }}>
                 <Stack
                   display={'flex'}
                   flexDirection={'row'}
@@ -122,16 +122,27 @@ const PopularArtistsGrid: React.FC<MovieGridProps> = ({ movies }) => {
                     variant="outlined"
                   />
                 </Stack>
+                <Typography
+                  variant="subtitle1"
+                  component="div"
+                  color="secondary.main"
+                >
+                  Real Name: {artist.original_name}
+                </Typography>
+
                 <CardActions
                   sx={{
                     display: 'flex',
                     justifyContent: 'space-between',
                     p: 2,
                     borderTop: `1px solid #333`,
+                    alignItems: 'center',
+                    border: '1px solid rgba(255, 255, 255, 0.9)',
                   }}
                 >
-                  <Box>
+                  <Box sx={{ display: 'flex', gap: 1, marginTop: 1 }}>
                     <Chip
+                      size="small"
                       label="GENDER"
                       icon={
                         artist.gender == 1 ? (
@@ -142,8 +153,6 @@ const PopularArtistsGrid: React.FC<MovieGridProps> = ({ movies }) => {
                       }
                       variant="filled"
                     />
-                  </Box>
-                  <Box sx={{ display: 'flex', gap: 1 }}>
                     <Chip
                       label={`${artist.popularity.toFixed(1)} ★`}
                       size="small"
@@ -188,12 +197,6 @@ const PopularArtistsGrid: React.FC<MovieGridProps> = ({ movies }) => {
                           loading="lazy"
                           width={248}
                           height={350}
-                        />
-                        <img
-                          srcSet={`${item.poster_path}?w=248&fit=crop&auto=format&dpr=2 3x`}
-                          src={`${posterThumbsPath}${item.poster_path}`}
-                          alt={item.title}
-                          loading="lazy"
                         />
                         <ImageListItemBar
                           title={item.title}

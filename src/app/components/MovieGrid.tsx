@@ -17,7 +17,7 @@ import { fillMovieAverageByRateValue } from '../../lib/utils';
 interface MovieGridProps {
   movies: TMDBMovie[];
 }
-
+const imgPosterBaseURL = process.env.NEXT_PUBLIC_IMG_POSTER_BASE_URL;
 const MovieGrid: React.FC<MovieGridProps> = ({ movies }) => {
   if (!movies || movies.length === 0) {
     return (
@@ -48,7 +48,7 @@ const MovieGrid: React.FC<MovieGridProps> = ({ movies }) => {
               <CardMedia
                 component="img"
                 height="400"
-                image={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                image={`${imgPosterBaseURL}${movie.poster_path}`}
                 alt={movie.title}
                 sx={{
                   objectFit: 'cover',
