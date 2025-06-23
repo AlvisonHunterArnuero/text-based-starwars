@@ -1,4 +1,4 @@
-import { TMDBMovieResponse, TMDBErrorResponse } from '@/types/tmdb';
+import { TMDBMovieResponse, TMDBErrorResponse, TMDBPopularArtistsResponse } from '@/types/tmdb';
 
 import { TMBD_ACCESS_TOKEN, TMDB_API_KEY, TMDB_ENDPOINTS } from '../utils/constants';
 
@@ -66,10 +66,21 @@ export async function getPopularTvShows(page: number = 1): Promise<TMDBMovieResp
     return makeTMDBRequest(url);
 }
 
-export async function getPopularArtists(page: number = 1): Promise<TMDBMovieResponse> {
+export async function getPopularArtists(page: number = 1): Promise<TMDBPopularArtistsResponse> {
     const url = new URL(TMDB_ENDPOINTS.POPULAR_ARTISTS);
     url.searchParams.append('language', 'en-US');
     url.searchParams.append('page', page.toString());
 
-    return makeTMDBRequest(url);
+    const response = await fetch(url.toString(), {
+        headers: baseHeaders,
+    });
+
+    if (!response.ok) {
+        const errorData: TMDBErrorResponse = await response.json();
+        throw new Error(
+            `TMDB request failed: ${errorData.status_message || response.statusText} (Status: ${response.status})`
+        );
+    }
+
+    return response.json();
 }

@@ -66,10 +66,10 @@ export interface TMDBErrorResponse {
 export interface TMDBKnownFor {
     backdrop_path: string | null;
     id: number;
-    title?: string; // For movies
-    name?: string; // For TV shows
-    original_title?: string; // For movies
-    original_name?: string; // For TV shows
+    title?: string;
+    name?: string;
+    original_title?: string;
+    original_name?: string;
     overview: string;
     poster_path: string | null;
     media_type: 'movie' | 'tv';
@@ -77,17 +77,17 @@ export interface TMDBKnownFor {
     original_language: string;
     genre_ids: number[];
     popularity: number;
-    release_date?: string; // For movies
-    first_air_date?: string; // For TV shows
+    release_date?: string;
+    first_air_date?: string;
     video?: boolean;
     vote_average: number;
     vote_count: number;
-    origin_country?: string[]; // For TV shows
+    origin_country?: string[];
 }
 
 export interface TMDBPopularArtist {
     adult: boolean;
-    gender: number; // 1 for female, 2 for male
+    gender: number;
     id: number;
     backdrop_path: string | null;
     known_for_department: string;
