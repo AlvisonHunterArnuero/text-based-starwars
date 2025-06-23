@@ -23,7 +23,7 @@ import React from 'react';
 
 import { TMDBPopularArtist } from '@/types/tmdb';
 
-import { fillMovieAverageByRateValue } from '../utils';
+import { fillMovieAverageByRateValue } from '../../lib/utils';
 
 interface MovieGridProps {
   movies: TMDBPopularArtist[];
