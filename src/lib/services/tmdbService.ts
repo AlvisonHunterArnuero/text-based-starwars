@@ -1,20 +1,19 @@
 import { TMDBMovieResponse, TMDBErrorResponse } from '@/types/tmdb';
 
-const accessToken: string | undefined = process.env.TMDB_API_READ_ACCESS_TOKEN;
-const apiKey: string | undefined = process.env.TMDB_API_KEY;
+import { TMBD_ACCESS_TOKEN, TMDB_API_KEY, TMDB_ENDPOINTS } from '../utils/constants';
 
-if (!accessToken || !apiKey) {
+if (!TMBD_ACCESS_TOKEN || !TMDB_API_KEY) {
     throw new Error('TMDB API credentials are not configured');
 }
 
 const baseHeaders = {
-    'Authorization': `Bearer ${accessToken}`,
+    'Authorization': `Bearer ${TMBD_ACCESS_TOKEN}`,
     'Accept': 'application/json',
     'Content-Type': 'application/json'
 };
 
 async function makeTMDBRequest(url: URL, options?: RequestInit): Promise<TMDBMovieResponse> {
-    url.searchParams.append('api_key', apiKey!);
+    url.searchParams.append('api_key', TMDB_API_KEY!);
 
     const response = await fetch(url.toString(), {
         headers: baseHeaders,
@@ -32,7 +31,7 @@ async function makeTMDBRequest(url: URL, options?: RequestInit): Promise<TMDBMov
 }
 
 export async function searchMovies(movieName: string): Promise<TMDBMovieResponse> {
-    const url = new URL('https://api.themoviedb.org/3/search/movie');
+    const url = new URL(TMDB_ENDPOINTS.SEARCH_MOVIES);
     url.searchParams.append('query', movieName);
     url.searchParams.append('include_adult', 'false');
     url.searchParams.append('language', 'en-US');
@@ -44,7 +43,7 @@ export async function searchMovies(movieName: string): Promise<TMDBMovieResponse
 }
 
 export async function getPopularMovies(page: number = 1): Promise<TMDBMovieResponse> {
-    const url = new URL('https://api.themoviedb.org/3/movie/popular');
+    const url = new URL(TMDB_ENDPOINTS.POPULAR_MOVIES);
     url.searchParams.append('language', 'en-US');
     url.searchParams.append('page', page.toString());
 
@@ -52,7 +51,7 @@ export async function getPopularMovies(page: number = 1): Promise<TMDBMovieRespo
 }
 
 export async function getTopRatedMovies(page: number = 1): Promise<TMDBMovieResponse> {
-    const url = new URL('https://api.themoviedb.org/3/movie/top_rated');
+    const url = new URL(TMDB_ENDPOINTS.TOP_RATED_MOVIES);
     url.searchParams.append('language', 'en-US');
     url.searchParams.append('page', page.toString());
 
@@ -60,7 +59,7 @@ export async function getTopRatedMovies(page: number = 1): Promise<TMDBMovieResp
 }
 
 export async function getPopularTvShows(page: number = 1): Promise<TMDBMovieResponse> {
-    const url = new URL('https://api.themoviedb.org/3/tv/popular');
+    const url = new URL(TMDB_ENDPOINTS.POPULAR_TV_SHOWS);
     url.searchParams.append('language', 'en-US');
     url.searchParams.append('page', page.toString());
 
@@ -68,7 +67,7 @@ export async function getPopularTvShows(page: number = 1): Promise<TMDBMovieResp
 }
 
 export async function getPopularArtists(page: number = 1): Promise<TMDBMovieResponse> {
-    const url = new URL('https://api.themoviedb.org/3/person/popular');
+    const url = new URL(TMDB_ENDPOINTS.POPULAR_ARTISTS);
     url.searchParams.append('language', 'en-US');
     url.searchParams.append('page', page.toString());
 
