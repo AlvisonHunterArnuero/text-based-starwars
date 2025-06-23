@@ -1,4 +1,5 @@
 import { Box, Container } from '@mui/material';
+
 import TMDBList from '@/app/components/TMDB_API/TMDBList';
 
 export default function TMDBPage() {

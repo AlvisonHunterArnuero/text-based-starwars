@@ -1,11 +1,13 @@
+import { Box } from '@mui/material';
 import { Geist, Geist_Mono, Inter } from 'next/font/google';
+
+import { randomBackgrounds } from '../config/content/layoutResources';
 
 import { DrawerNavigation } from './components/DrawerNavigation';
 
 import './globals.css';
 
 import type { Metadata } from 'next';
-import { Box } from '@mui/material';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -35,12 +37,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const randomBackgrounds = [
-    '/starwars/welcome.jpeg',
-    '/starwars/welcome2.jpg',
-    '/starwars/welcome3.png',
-    '/starwars/welcome4.png',
-  ];
   return (
     <html lang="en">
       <body
