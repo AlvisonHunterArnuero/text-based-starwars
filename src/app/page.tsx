@@ -1,6 +1,6 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import React, { useState, useEffect } from 'react';
 
 import WelcomeModal from './components/WelcomeModal';
@@ -8,21 +8,29 @@ import WelcomeModal from './components/WelcomeModal';
 export default function Home() {
   const [showWelcome, setShowWelcome] = useState(false);
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const redirectPath = searchParams.get('redirect') || '/swapi';
 
   useEffect(() => {
     // Check if user has already entered their name
-    const savedName = localStorage.getItem('userName');
+    const savedName = document.cookie
+      .split('; ')
+      .find((row) => row.startsWith('userName='))
+      ?.split('=')[1];
+
     if (!savedName) {
       setShowWelcome(true);
-      router.push('/');
     } else {
-      router.push('/swapi');
+      router.push(redirectPath);
     }
-  }, [router]);
+  }, [router, redirectPath]);
 
   const handleComplete = (name: string) => {
-    setShowWelcome(false);
-    localStorage.setItem('userName', name);
+    // Set cookie and redirect
+    document.cookie = `userName=${encodeURIComponent(
+      name
+    )}; path=/; max-age=31536000`;
+    router.push(redirectPath);
   };
   return (
     <main>
