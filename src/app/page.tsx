@@ -1,7 +1,8 @@
 'use client';
 
+import { Box } from '@mui/material';
 import { useRouter, useSearchParams } from 'next/navigation';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 
 import WelcomeModal from './components/WelcomeModal';
 
@@ -33,8 +34,10 @@ export default function Home() {
     router.push(redirectPath);
   };
   return (
-    <main>
-      {showWelcome && <WelcomeModal onComplete={handleComplete} />}
-    </main>
+    <Suspense fallback={<Box color={'red'}>Loading...</Box>}>
+      <main>
+        {showWelcome && <WelcomeModal onComplete={handleComplete} />}
+      </main>
+    </Suspense>
   );
 }
