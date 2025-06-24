@@ -7,13 +7,14 @@ import { fetchTMDBMovies } from '@/app/actions/tmdbActions';
 import { TMDBMovieResponse } from '@/types/tmdb';
 
 import MovieGrid from '../MovieGrid';
+import { Spinner } from '../Spinner';
 
 const TMDBList: FC = () => {
   const [filmsData, setFilmsData] =
     useState<TMDBMovieResponse | null>(null);
   const [searchQuery, setSearchQuery] = useState<string>('Star Wars');
-  const [debouncedQuery, setDebouncedQuery] =
-    useState<string>('');
+  const [debouncedQuery, setDebouncedQuery] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(true);
 
   const handleSearchQueryChange = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -34,6 +35,7 @@ const TMDBList: FC = () => {
 
   // Fetch movies by name when debounced query changes
   useEffect(() => {
+    setLoading(true);
     const fetchMoviesByName = async () => {
       try {
         if (debouncedQuery.trim() === '') {
@@ -52,6 +54,7 @@ const TMDBList: FC = () => {
     };
 
     fetchMoviesByName();
+    setLoading(false);
   }, [debouncedQuery]);
 
   return (
@@ -91,7 +94,12 @@ const TMDBList: FC = () => {
         }}
         onChange={handleSearchQueryChange}
       />
-      <MovieGrid movies={filmsData?.results ?? []} />
+
+      {loading ? (
+        <Spinner title="Fetching Movies..." />
+      ) : (
+        <MovieGrid movies={filmsData?.results ?? []} />
+      )}
     </>
   );
 };

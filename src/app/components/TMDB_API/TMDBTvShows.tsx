@@ -10,6 +10,7 @@ import { fetchTMDBTvShows } from '@/app/actions/tmdbActions';
 import { TMDBMovieResponse } from '@/types/tmdb';
 
 import MovieGrid from '../MovieGrid';
+import { Spinner } from '../Spinner';
 
 const TMDBTvShows: FC = () => {
   const [filmsData, setFilmsData] =
@@ -51,7 +52,11 @@ const TMDBTvShows: FC = () => {
 
   return (
     <>
-      <MovieGrid movies={filmsData?.results ?? []} />
+      {loading ? (
+        <Spinner title="Fetching Movies..." />
+      ) : (
+        <MovieGrid movies={filmsData?.results ?? []} />
+      )}
       <Box
         sx={{
           display: 'flex',

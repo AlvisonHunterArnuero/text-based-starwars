@@ -10,6 +10,7 @@ import { fetchTMDBTopRatedMovies } from '@/app/actions/tmdbActions';
 import { TMDBMovieResponse } from '@/types/tmdb';
 
 import MovieGrid from '../MovieGrid';
+import { Spinner } from '../Spinner';
 
 const TMDBTopRatedList: FC = () => {
   const [filmsData, setFilmsData] =
@@ -51,7 +52,11 @@ const TMDBTopRatedList: FC = () => {
 
   return (
     <>
-      <MovieGrid movies={filmsData?.results ?? []} />
+      {loading ? (
+        <Spinner title="Fetching Movies..." />
+      ) : (
+        <MovieGrid movies={filmsData?.results ?? []} />
+      )}
       <Box
         sx={{
           display: 'flex',

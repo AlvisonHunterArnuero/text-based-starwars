@@ -10,6 +10,7 @@ import { fetchTMDBPopularArtists } from '@/app/actions/tmdbActions';
 import { TMDBPopularArtistsResponse } from '@/types/tmdb';
 
 import PopularArtistsGrid from '../PopularArtistsGrid';
+import { Spinner } from '../Spinner';
 
 const TMDBPopularArtists: FC = () => {
   const [filmsData, setFilmsData] =
@@ -51,7 +52,11 @@ const TMDBPopularArtists: FC = () => {
 
   return (
     <>
-      <PopularArtistsGrid movies={filmsData?.results ?? []} />
+      {loading ? (
+        <Spinner title="Fetching Movies..." />
+      ) : (
+        <PopularArtistsGrid movies={filmsData?.results ?? []} />
+      )}
       <Box
         sx={{
           display: 'flex',
