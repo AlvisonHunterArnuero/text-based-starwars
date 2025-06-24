@@ -36,8 +36,6 @@ export default function WelcomeModal({
         justifyContent: 'center',
         alignItems: 'center',
         zIndex: 9999,
-        backgroundPosition: 'center',
-        backgroundSize: 'cover',
         backdropFilter: 'blur(5px)',
       }}
     >
@@ -47,7 +45,7 @@ export default function WelcomeModal({
           component="h1"
           gutterBottom
           textAlign="center"
-          color="white"
+          color="red"
           sx={{ mb: 4, textShadow: '2px 2px 2px rgba(0,0,0,0.5)' }}
         >
           Welcome to Our Starwars World!
@@ -59,8 +57,7 @@ export default function WelcomeModal({
           textAlign="center"
           sx={{
             mb: 4,
-            color: 'white',
-            textShadow: '1px 1px 2px rgba(0,0,0,0.5)',
+            color: 'black',
           }}
         >
           Please enter your name to continue
@@ -75,7 +72,7 @@ export default function WelcomeModal({
             onChange={(e) => setName(e.target.value)}
             sx={{
               mb: 3,
-              backgroundColor: 'rgba(255,255,255,0.8)',
+              backgroundColor: 'rgba(255,255,255,0.3)',
               borderRadius: '4px',
             }}
             autoFocus
