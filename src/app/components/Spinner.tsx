@@ -5,6 +5,7 @@ import React from 'react';
 export const Spinner = ({ title }: { title: string }) => {
   return (
     <Box
+      data-testid="spinner-box"
       sx={{
         display: 'flex',
         minHeight: '80vh',
