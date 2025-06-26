@@ -14,12 +14,13 @@ import {
 } from '@mui/material';
 import CircularProgress from '@mui/material/CircularProgress';
 import { grey } from '@mui/material/colors';
+import React from 'react';
 import { useEffect, useState } from 'react';
 
-import { useFilmSort } from '@/_hooks/useFilmSort';
 import { SortField } from '@/types/hooks';
 import { TSwapiFilm, TSwapiFilmsResponse } from '@/types/swapi';
 
+import { useFilmSort } from '../../_hooks/useFilmSort';
 import { fetchSWAPIFilms } from '../actions/filmsActions';
 
 import { FilmCard } from './FilmCard';
@@ -153,7 +154,7 @@ export default function FilmsList() {
             size="small"
             sx={{ minWidth: '250px' }}
             labelId="filter-movies-select-label"
-            id="demo-simple-select"
+            id="movie-filter-select"
             value={sortField}
             onChange={(e) =>
               setSortField(e.target.value as SortField)
