@@ -4,6 +4,7 @@ import LiveTvIcon from '@mui/icons-material/LiveTv';
 import MovieIcon from '@mui/icons-material/Movie';
 import MovieFilterIcon from '@mui/icons-material/MovieFilter';
 import StarsIcon from '@mui/icons-material/Stars';
+import React from 'react';
 
 import { DrawerMenuItem } from '@/types/navigation';
 

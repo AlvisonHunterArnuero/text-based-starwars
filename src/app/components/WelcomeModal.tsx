@@ -1,5 +1,4 @@
 'use client';
-
 import {
   Box,
   TextField,
@@ -7,6 +6,7 @@ import {
   Button,
   Container,
 } from '@mui/material';
+import React from 'react';
 import { useState } from 'react';
 
 export default function WelcomeModal({
