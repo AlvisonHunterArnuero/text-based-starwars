@@ -7,12 +7,14 @@ import {
   Chip,
   CardMedia,
 } from '@mui/material';
+import React from 'react';
+
+import { TSwapiFilm } from '@/types/swapi';
 
 import {
   swCardMediaImagesArr,
   swFilmsCardImgURIS,
-} from '@/config/navigation/cardImagesResources';
-import { TSwapiFilm } from '@/types/swapi';
+} from '../../config/navigation/cardImagesResources';
 
 export function FilmCard({
   film,

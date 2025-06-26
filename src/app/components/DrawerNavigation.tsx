@@ -15,7 +15,7 @@ import {
 import Link from 'next/link';
 import React, { FC } from 'react';
 
-import { drawerItemsArr } from '@/config/navigation/drawerMenu';
+import { drawerItemsArr } from '../../config/navigation/drawerMenu';
 
 export const DrawerNavigation: FC = () => {
   const [open, setOpen] = React.useState(false);
@@ -51,9 +51,10 @@ export const DrawerNavigation: FC = () => {
         {DrawerList}
       </Drawer>
       <Button
+        role="button"
         onClick={toggleDrawer(true)}
         color="primary"
-        aria-label="add"
+        aria-label="Menu"
         sx={{
           position: 'fixed',
           top: 16,
