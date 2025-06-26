@@ -1,0 +1,358 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`PopularArtistsGrid Component > matches snapshot with mock data 1`] = `
+<div>
+  <div
+    class="MuiBox-root css-1cksp76"
+  >
+    <h4
+      class="MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom css-1fvtwfk-MuiTypography-root"
+    >
+      Popular Artists
+    </h4>
+    <h6
+      class="MuiTypography-root MuiTypography-subtitle1 MuiTypography-gutterBottom css-10jmx0n-MuiTypography-root"
+    >
+      Discover the most popular artists in the film industry.
+    </h6>
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed css-1dgpa8w-MuiContainer-root"
+    >
+      <div
+        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 css-dqwztt-MuiGrid-root"
+      >
+        <div
+          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-14tng7z-MuiPaper-root-MuiCard-root"
+          data-testid="artist-card-1"
+          role="article"
+          style="--Paper-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);"
+        >
+          <img
+            alt="Scarlett Johansson"
+            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1q6sk57-MuiCardMedia-root"
+            height="200"
+            src="undefined/test-profile1.jpg"
+          />
+          <div
+            class="MuiCardContent-root css-1nfy826-MuiCardContent-root"
+          >
+            <div
+              class="MuiStack-root css-abc9gl-MuiStack-root"
+            >
+              <div
+                class="MuiTypography-root MuiTypography-h5 css-82crf8-MuiTypography-root"
+              >
+                Scarlett Johansson
+              </div>
+              <div
+                class="MuiChip-root MuiChip-outlined MuiChip-sizeMedium MuiChip-colorDefault MuiChip-outlinedDefault css-1lrxra9-MuiChip-root"
+              >
+                <span
+                  class="MuiChip-label MuiChip-labelMedium css-16cgrcw-MuiChip-label"
+                >
+                  Acting
+                </span>
+              </div>
+            </div>
+            <div
+              class="MuiTypography-root MuiTypography-subtitle1 css-d8p31k-MuiTypography-root"
+            >
+              Real Name: 
+              Scarlett Johansson
+            </div>
+            <div
+              class="MuiCardActions-root MuiCardActions-spacing css-11sikwc-MuiCardActions-root"
+            >
+              <div
+                class="MuiBox-root css-1uthhvt"
+              >
+                <div
+                  class="MuiChip-root MuiChip-filled MuiChip-sizeSmall MuiChip-colorDefault MuiChip-filledDefault css-8aqjdy-MuiChip-root"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiChip-icon MuiChip-iconSmall MuiChip-iconColorDefault css-1umw9bq-MuiSvgIcon-root"
+                    data-testid="MaleIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M9.5 11c1.93 0 3.5 1.57 3.5 3.5S11.43 18 9.5 18 6 16.43 6 14.5 7.57 11 9.5 11m0-2C6.46 9 4 11.46 4 14.5S6.46 20 9.5 20s5.5-2.46 5.5-5.5c0-1.16-.36-2.23-.97-3.12L18 7.42V10h2V4h-6v2h2.58l-3.97 3.97C11.73 9.36 10.66 9 9.5 9"
+                    />
+                  </svg>
+                  <span
+                    class="MuiChip-label MuiChip-labelSmall css-eccknh-MuiChip-label"
+                  >
+                    GENDER
+                  </span>
+                </div>
+                <div
+                  class="MuiChip-root MuiChip-filled MuiChip-sizeSmall MuiChip-colorPrimary MuiChip-filledPrimary css-1abuvwb-MuiChip-root"
+                >
+                  <span
+                    class="MuiChip-label MuiChip-labelSmall css-eccknh-MuiChip-label"
+                  >
+                    85.5 ★
+                  </span>
+                </div>
+                <div
+                  class="MuiChip-root MuiChip-outlined MuiChip-sizeSmall MuiChip-colorSecondary MuiChip-outlinedSecondary css-e0vu2d-MuiChip-root"
+                >
+                  <span
+                    class="MuiChip-label MuiChip-labelSmall css-19m61dl-MuiChip-label"
+                  >
+                    Popularity: 86
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-4 css-kqg16c-MuiGrid-root"
+            >
+              <ul
+                class="MuiImageList-root MuiImageList-standard css-lmqlpj-MuiImageList-root"
+                style="grid-template-columns: repeat(2, 1fr); gap: 8px;"
+              >
+                <li
+                  class="MuiImageListItem-root MuiImageListItem-standard css-xjohuq-MuiImageListItem-root"
+                  style="height: auto; grid-column-end: span 2; grid-row-end: span 1;"
+                >
+                  <div
+                    class="MuiListSubheader-root MuiListSubheader-gutters MuiListSubheader-sticky css-l328gy-MuiListSubheader-root"
+                  >
+                    <h6
+                      class="MuiTypography-root MuiTypography-h6 css-hqli7f-MuiTypography-root"
+                    >
+                      Known For:
+                    </h6>
+                  </div>
+                </li>
+                <li
+                  class="MuiImageListItem-root MuiImageListItem-standard css-xjohuq-MuiImageListItem-root"
+                  style="height: auto; grid-column-end: span 3; grid-row-end: span 1;"
+                >
+                  <img
+                    alt="Lucy"
+                    class="MuiImageListItem-img"
+                    height="350"
+                    loading="lazy"
+                    src="undefined/poster1.jpg"
+                    width="248"
+                  />
+                  <div
+                    class="MuiImageListItemBar-root MuiImageListItemBar-positionBottom MuiImageListItemBar-actionPositionRight css-hbl0a4-MuiImageListItemBar-root"
+                  >
+                    <div
+                      class="MuiImageListItemBar-titleWrap MuiImageListItemBar-titleWrapBottom MuiImageListItemBar-titleWrapActionPosRight css-xn78qt-MuiImageListItemBar-titleWrap"
+                    >
+                      <div
+                        class="MuiImageListItemBar-title css-1sdhmys-MuiImageListItemBar-title"
+                      >
+                        Lucy
+                      </div>
+                      <div
+                        class="MuiImageListItemBar-subtitle css-12mqd3t-MuiImageListItemBar-subtitle"
+                      >
+                        Series 1
+                      </div>
+                    </div>
+                    <div
+                      class="MuiImageListItemBar-actionIcon MuiImageListItemBar-actionIconActionPosRight css-6nlpuz-MuiImageListItemBar-actionIcon"
+                    >
+                      <button
+                        aria-label="info about Lucy"
+                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-10u7adb-MuiButtonBase-root-MuiIconButton-root"
+                        tabindex="0"
+                        type="button"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1umw9bq-MuiSvgIcon-root"
+                          data-testid="InfoIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m1 15h-2v-6h2zm0-8h-2V7h2z"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-direction-xs-row MuiGrid-grid-xs-12 css-dqwztt-MuiGrid-root"
+      >
+        <div
+          class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-14tng7z-MuiPaper-root-MuiCard-root"
+          data-testid="artist-card-2"
+          role="article"
+          style="--Paper-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);"
+        >
+          <img
+            alt="Sandra Bullock"
+            class="MuiCardMedia-root MuiCardMedia-media MuiCardMedia-img css-1q6sk57-MuiCardMedia-root"
+            height="200"
+            src="undefined/test-profile2.jpg"
+          />
+          <div
+            class="MuiCardContent-root css-1nfy826-MuiCardContent-root"
+          >
+            <div
+              class="MuiStack-root css-abc9gl-MuiStack-root"
+            >
+              <div
+                class="MuiTypography-root MuiTypography-h5 css-82crf8-MuiTypography-root"
+              >
+                Sandra Bullock
+              </div>
+              <div
+                class="MuiChip-root MuiChip-outlined MuiChip-sizeMedium MuiChip-colorDefault MuiChip-outlinedDefault css-1lrxra9-MuiChip-root"
+              >
+                <span
+                  class="MuiChip-label MuiChip-labelMedium css-16cgrcw-MuiChip-label"
+                >
+                  Directing
+                </span>
+              </div>
+            </div>
+            <div
+              class="MuiTypography-root MuiTypography-subtitle1 css-d8p31k-MuiTypography-root"
+            >
+              Real Name: 
+              Sandra Bullock
+            </div>
+            <div
+              class="MuiCardActions-root MuiCardActions-spacing css-11sikwc-MuiCardActions-root"
+            >
+              <div
+                class="MuiBox-root css-1uthhvt"
+              >
+                <div
+                  class="MuiChip-root MuiChip-filled MuiChip-sizeSmall MuiChip-colorDefault MuiChip-filledDefault css-8aqjdy-MuiChip-root"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiChip-icon MuiChip-iconSmall MuiChip-iconColorDefault css-1umw9bq-MuiSvgIcon-root"
+                    data-testid="FemaleIcon"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M17.5 9.5C17.5 6.46 15.04 4 12 4S6.5 6.46 6.5 9.5c0 2.7 1.94 4.93 4.5 5.4V17H9v2h2v2h2v-2h2v-2h-2v-2.1c2.56-.47 4.5-2.7 4.5-5.4m-9 0C8.5 7.57 10.07 6 12 6s3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5"
+                    />
+                  </svg>
+                  <span
+                    class="MuiChip-label MuiChip-labelSmall css-eccknh-MuiChip-label"
+                  >
+                    GENDER
+                  </span>
+                </div>
+                <div
+                  class="MuiChip-root MuiChip-filled MuiChip-sizeSmall MuiChip-colorPrimary MuiChip-filledPrimary css-1abuvwb-MuiChip-root"
+                >
+                  <span
+                    class="MuiChip-label MuiChip-labelSmall css-eccknh-MuiChip-label"
+                  >
+                    72.3 ★
+                  </span>
+                </div>
+                <div
+                  class="MuiChip-root MuiChip-outlined MuiChip-sizeSmall MuiChip-colorSecondary MuiChip-outlinedSecondary css-e0vu2d-MuiChip-root"
+                >
+                  <span
+                    class="MuiChip-label MuiChip-labelSmall css-19m61dl-MuiChip-label"
+                  >
+                    Popularity: 72
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-row MuiGrid-spacing-xs-4 css-kqg16c-MuiGrid-root"
+            >
+              <ul
+                class="MuiImageList-root MuiImageList-standard css-lmqlpj-MuiImageList-root"
+                style="grid-template-columns: repeat(2, 1fr); gap: 8px;"
+              >
+                <li
+                  class="MuiImageListItem-root MuiImageListItem-standard css-xjohuq-MuiImageListItem-root"
+                  style="height: auto; grid-column-end: span 2; grid-row-end: span 1;"
+                >
+                  <div
+                    class="MuiListSubheader-root MuiListSubheader-gutters MuiListSubheader-sticky css-l328gy-MuiListSubheader-root"
+                  >
+                    <h6
+                      class="MuiTypography-root MuiTypography-h6 css-hqli7f-MuiTypography-root"
+                    >
+                      Known For:
+                    </h6>
+                  </div>
+                </li>
+                <li
+                  class="MuiImageListItem-root MuiImageListItem-standard css-xjohuq-MuiImageListItem-root"
+                  style="height: auto; grid-column-end: span 3; grid-row-end: span 1;"
+                >
+                  <img
+                    alt="Gravity"
+                    class="MuiImageListItem-img"
+                    height="350"
+                    loading="lazy"
+                    src="undefined/poster2.jpg"
+                    width="248"
+                  />
+                  <div
+                    class="MuiImageListItemBar-root MuiImageListItemBar-positionBottom MuiImageListItemBar-actionPositionRight css-hbl0a4-MuiImageListItemBar-root"
+                  >
+                    <div
+                      class="MuiImageListItemBar-titleWrap MuiImageListItemBar-titleWrapBottom MuiImageListItemBar-titleWrapActionPosRight css-xn78qt-MuiImageListItemBar-titleWrap"
+                    >
+                      <div
+                        class="MuiImageListItemBar-title css-1sdhmys-MuiImageListItemBar-title"
+                      >
+                        Gravity
+                      </div>
+                      <div
+                        class="MuiImageListItemBar-subtitle css-12mqd3t-MuiImageListItemBar-subtitle"
+                      >
+                        Series 2
+                      </div>
+                    </div>
+                    <div
+                      class="MuiImageListItemBar-actionIcon MuiImageListItemBar-actionIconActionPosRight css-6nlpuz-MuiImageListItemBar-actionIcon"
+                    >
+                      <button
+                        aria-label="info about Gravity"
+                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-10u7adb-MuiButtonBase-root-MuiIconButton-root"
+                        tabindex="0"
+                        type="button"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1umw9bq-MuiSvgIcon-root"
+                          data-testid="InfoIcon"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m1 15h-2v-6h2zm0-8h-2V7h2z"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

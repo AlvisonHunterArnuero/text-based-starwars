@@ -77,6 +77,8 @@ const PopularArtistsGrid: React.FC<MovieGridProps> = ({ movies }) => {
             }}
           >
             <Card
+              role="article"
+              data-testid={`artist-card-${artist.id}`}
               sx={{
                 height: '100%',
                 display: 'flex',
